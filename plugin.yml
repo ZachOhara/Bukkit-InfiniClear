@@ -1,0 +1,11 @@
+name: Infiniclear
+version: 0.1
+main: io.zachohara.github.bukkit.infiniclear.InfiniClearPlugin
+depend: [BukkitCommon]
+description: Forever sunny skies!
+author: Zach Ohara
+commands:
+  infiniclear:
+    description: Turn InfiniClear on or off
+    usage: /infiniclear
+    aliases: [infclr]
