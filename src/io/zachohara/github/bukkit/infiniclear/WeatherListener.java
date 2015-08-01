@@ -32,17 +32,4 @@ public class WeatherListener implements Runnable {
 		WeatherUtil.autocorrectWeather();
 	}
 	
-//	/**
-//	 * Checks if a {@code WeatherChangeEvent} is turning to rain, and if weather protection
-//	 * is currently enabled. If both of these conditions are met, the event is cancelled.
-//	 *
-//	 * @param event
-//	 */
-//	@EventHandler
-//	public void onWeatherChange(WeatherChangeEvent event) {
-//		if (InfiniClearPlugin.isProtectionEnabled()) {
-//			event.getWorld().setStorm(false);;
-//		}
-//	}
-	
 }
