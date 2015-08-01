@@ -16,6 +16,8 @@
 
 package io.zachohara.github.bukkit.infiniclear;
 
+import org.bukkit.Bukkit;
+
 import io.github.zachohara.bukkit.common.command.CommandExecutables;
 import io.github.zachohara.bukkit.common.command.CommandRules;
 import io.github.zachohara.bukkit.common.plugin.CommonPlugin;
@@ -27,12 +29,28 @@ import io.github.zachohara.bukkit.common.plugin.CommonPlugin;
  */
 public class InfiniClearPlugin extends CommonPlugin {
 	
+	/**
+	 * {@code true} if weather protection through this plugin is currently enabled; {@code false} otherwise.
+	 */
 	private static boolean enabled;
 	
+	/**
+	 * Determines if weather protection through this plugin is currently enabled.
+	 *
+	 * @return {@code true} if weather protection through this plugin is currently enabled; {@code false} otherwise.
+	 * @see #enabled
+	 */
 	public static boolean isProtectionEnabled() {
 		return enabled;
 	}
 	
+	/**
+	 * Toggles the on/off state of weather protection. Weather protection will be turned on if it
+	 * was previously off, or turned off if it was previously on. After the protection status has
+	 * been toggled, returns the new status from {@link #isProtectionEnabled()}.  
+	 *
+	 * @return the new status of weather protection.
+	 */
 	public static boolean toggleProtectionEnabled() {
 		enabled = !enabled;
 		return isProtectionEnabled();
@@ -45,6 +63,7 @@ public class InfiniClearPlugin extends CommonPlugin {
 	public void onEnable() {
 		enabled = false;
 		this.getLogger().info("Weather protection is currently off");
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new WeatherListener(), 0L, 20L);
 	}
 	
 	/**
