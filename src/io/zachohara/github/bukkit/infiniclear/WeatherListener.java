@@ -31,5 +31,5 @@ public class WeatherListener implements Runnable {
 	public void run() {
 		WeatherUtil.autocorrectWeather();
 	}
-	
+
 }

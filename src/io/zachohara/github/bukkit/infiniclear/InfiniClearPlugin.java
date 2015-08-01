@@ -16,11 +16,11 @@
 
 package io.zachohara.github.bukkit.infiniclear;
 
-import org.bukkit.Bukkit;
-
 import io.github.zachohara.bukkit.common.command.CommandExecutables;
 import io.github.zachohara.bukkit.common.command.CommandRules;
 import io.github.zachohara.bukkit.common.plugin.CommonPlugin;
+
+import org.bukkit.Bukkit;
 
 /**
  * The {@code InfiniClearPlugin} class is the entry point for the plugin.
@@ -28,44 +28,47 @@ import io.github.zachohara.bukkit.common.plugin.CommonPlugin;
  * @author Zach Ohara
  */
 public class InfiniClearPlugin extends CommonPlugin {
-	
+
 	/**
-	 * {@code true} if weather protection through this plugin is currently enabled; {@code false} otherwise.
+	 * {@code true} if weather protection through this plugin is currently enabled;
+	 * {@code false} otherwise.
 	 */
 	private static boolean enabled;
-	
+
 	/**
 	 * Determines if weather protection through this plugin is currently enabled.
 	 *
-	 * @return {@code true} if weather protection through this plugin is currently enabled; {@code false} otherwise.
+	 * @return {@code true} if weather protection through this plugin is currently enabled;
+	 * {@code false} otherwise.
 	 * @see #enabled
 	 */
 	public static boolean isProtectionEnabled() {
-		return enabled;
+		return InfiniClearPlugin.enabled;
 	}
-	
+
 	/**
-	 * Toggles the on/off state of weather protection. Weather protection will be turned on if it
-	 * was previously off, or turned off if it was previously on. After the protection status has
-	 * been toggled, returns the new status from {@link #isProtectionEnabled()}.  
+	 * Toggles the on/off state of weather protection. Weather protection will be turned on
+	 * if it was previously off, or turned off if it was previously on. After the
+	 * protection status has been toggled, returns the new status from
+	 * {@link #isProtectionEnabled()}.
 	 *
 	 * @return the new status of weather protection.
 	 */
 	public static boolean toggleProtectionEnabled() {
-		enabled = !enabled;
-		return isProtectionEnabled();
+		InfiniClearPlugin.enabled = !InfiniClearPlugin.enabled;
+		return InfiniClearPlugin.isProtectionEnabled();
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onEnable() {
-		enabled = false;
+		InfiniClearPlugin.enabled = false;
 		this.getLogger().info("Weather protection is currently off");
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new WeatherListener(), 0L, 20L);
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -73,7 +76,7 @@ public class InfiniClearPlugin extends CommonPlugin {
 	public Class<? extends CommandRules> getCommandRuleSet() {
 		return Rules.class;
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -81,5 +84,5 @@ public class InfiniClearPlugin extends CommonPlugin {
 	public Class<? extends CommandExecutables> getCommandExecutableSet() {
 		return Executables.class;
 	}
-	
+
 }

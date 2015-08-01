@@ -20,30 +20,30 @@ import org.bukkit.Bukkit;
 import org.bukkit.World;
 
 /**
- * The {@code WeatherUtil} class contains some useful methods for dealing with weather inside the game.
+ * The {@code WeatherUtil} class contains some useful methods for dealing with weather
+ * inside the game.
  *
  * @author Zach Ohara
  */
 public final class WeatherUtil {
-	
+
 	/**
 	 * The {@code WeatherUtil} class should not be instantiable.
 	 */
 	private WeatherUtil() {
-		
+
 	}
-	
+
 	/**
-	 * Sets the weather in all worlds to clear, after checking that weather protection is currently
-	 * enabled.
+	 * Sets the weather in all worlds to clear, after checking that weather protection is
+	 * currently enabled.
 	 */
 	public static void autocorrectWeather() {
-		if (!InfiniClearPlugin.isProtectionEnabled()) {
-			return;
-		}
-		for (World w : Bukkit.getWorlds()) {
-			w.setStorm(false);
+		if (InfiniClearPlugin.isProtectionEnabled()) {
+			for (World w : Bukkit.getWorlds()) {
+				w.setStorm(false);
+			}
 		}
 	}
-	
+
 }

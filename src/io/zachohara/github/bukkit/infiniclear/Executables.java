@@ -28,7 +28,7 @@ import io.github.zachohara.bukkit.common.command.Implementation;
  * @author Zach Ohara
  */
 public enum Executables implements CommandExecutables {
-	
+
 	INFINICLEAR(new InfiniClear());
 
 	/**
@@ -82,5 +82,5 @@ public enum Executables implements CommandExecutables {
 		}
 
 	}
-	
+
 }

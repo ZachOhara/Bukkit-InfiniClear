@@ -27,7 +27,7 @@ import io.github.zachohara.bukkit.common.command.CommandRulesEntry;
  * @author Zach Ohara
  */
 public enum Rules implements CommandRules {
-	
+
 	INFINICLEAR(new CommandRulesEntry("infiniclear", 0, 0, Source.OP_ONLY, Target.NONE));
 
 	/**
@@ -51,5 +51,5 @@ public enum Rules implements CommandRules {
 	public CommandRulesEntry getRulesEntry() {
 		return this.rulesEntry;
 	}
-	
+
 }
