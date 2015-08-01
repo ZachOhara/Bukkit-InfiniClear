@@ -16,29 +16,33 @@
 
 package io.zachohara.github.bukkit.infiniclear;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.weather.WeatherChangeEvent;
-
 /**
  * A {@code WeatherListener} listens for changes in the weather of a world, and changes it
  * back to sunshine if protection is enabled.
  *
  * @author Zach Ohara
  */
-public class WeatherListener implements Listener {
-	
+public class WeatherListener implements Runnable {
+
 	/**
-	 * Checks if a {@code WeatherChangeEvent} is turning to rain, and if weather protection
-	 * is currently enabled. If both of these conditions are met, the event is cancelled.
-	 *
-	 * @param event
+	 * {@inheritDoc}
 	 */
-	@EventHandler
-	public void onWeatherChange(WeatherChangeEvent event) {
-		if (InfiniClearPlugin.isProtectionEnabled()) {
-			event.getWorld().setStorm(false);;
-		}
+	@Override
+	public void run() {
+		WeatherUtil.autocorrectWeather();
 	}
+	
+//	/**
+//	 * Checks if a {@code WeatherChangeEvent} is turning to rain, and if weather protection
+//	 * is currently enabled. If both of these conditions are met, the event is cancelled.
+//	 *
+//	 * @param event
+//	 */
+//	@EventHandler
+//	public void onWeatherChange(WeatherChangeEvent event) {
+//		if (InfiniClearPlugin.isProtectionEnabled()) {
+//			event.getWorld().setStorm(false);;
+//		}
+//	}
 	
 }
