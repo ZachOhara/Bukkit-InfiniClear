@@ -16,9 +16,7 @@
 
 package io.zachohara.github.bukkit.infiniclear;
 
-import io.github.zachohara.bukkit.common.command.CommandExecutables;
-import io.github.zachohara.bukkit.common.command.CommandRules;
-import io.github.zachohara.bukkit.common.plugin.CommonPlugin;
+import io.github.zachohara.bukkit.simpleplugin.plugin.EmptyPlugin;
 
 import org.bukkit.Bukkit;
 
@@ -27,62 +25,15 @@ import org.bukkit.Bukkit;
  *
  * @author Zach Ohara
  */
-public class InfiniClearPlugin extends CommonPlugin {
-
-	/**
-	 * {@code true} if weather protection through this plugin is currently enabled;
-	 * {@code false} otherwise.
-	 */
-	private static boolean enabled;
-
-	/**
-	 * Determines if weather protection through this plugin is currently enabled.
-	 *
-	 * @return {@code true} if weather protection through this plugin is currently enabled;
-	 * {@code false} otherwise.
-	 * @see #enabled
-	 */
-	public static boolean isProtectionEnabled() {
-		return InfiniClearPlugin.enabled;
-	}
-
-	/**
-	 * Toggles the on/off state of weather protection. Weather protection will be turned on
-	 * if it was previously off, or turned off if it was previously on. After the
-	 * protection status has been toggled, returns the new status from
-	 * {@link #isProtectionEnabled()}.
-	 *
-	 * @return the new status of weather protection.
-	 */
-	public static boolean toggleProtectionEnabled() {
-		InfiniClearPlugin.enabled = !InfiniClearPlugin.enabled;
-		return InfiniClearPlugin.isProtectionEnabled();
-	}
+public class InfiniClearPlugin extends EmptyPlugin {
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onEnable() {
-		InfiniClearPlugin.enabled = false;
-		this.getLogger().info("Weather protection is currently off");
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new WeatherListener(), 0L, 20L);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Class<? extends CommandRules> getCommandRuleSet() {
-		return Rules.class;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Class<? extends CommandExecutables> getCommandExecutableSet() {
-		return Executables.class;
+		// Run the WeatherRunnable every second, from now until server shutdown.
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new WeatherRunnable(), 0L, 20L);
 	}
 
 }

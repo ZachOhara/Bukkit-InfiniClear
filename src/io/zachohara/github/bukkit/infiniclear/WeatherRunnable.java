@@ -16,20 +16,26 @@
 
 package io.zachohara.github.bukkit.infiniclear;
 
+import org.bukkit.Bukkit;
+import org.bukkit.World;
+
 /**
  * A {@code WeatherListener} listens for changes in the weather of a world, and changes it
  * back to sunshine if protection is enabled.
  *
  * @author Zach Ohara
  */
-public class WeatherListener implements Runnable {
+public class WeatherRunnable implements Runnable {
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void run() {
-		WeatherUtil.autocorrectWeather();
+		for (World w : Bukkit.getWorlds()) {
+			w.setStorm(false); // Clear any bad weather
+			w.setTime(6000); // 12 pm
+		}
 	}
 
 }
