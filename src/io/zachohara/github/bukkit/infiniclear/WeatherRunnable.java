@@ -20,8 +20,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.World;
 
 /**
- * A {@code WeatherListener} listens for changes in the weather of a world, and changes it
- * back to sunshine if protection is enabled.
+ * A {@code WeatherRunnable} forcably changes all current worlds back to sunny weather and
+ * 12 pm every time it is run.
  *
  * @author Zach Ohara
  */
