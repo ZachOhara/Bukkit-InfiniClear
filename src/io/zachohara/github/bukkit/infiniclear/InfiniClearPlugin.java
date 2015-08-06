@@ -16,22 +16,22 @@
 
 package io.zachohara.github.bukkit.infiniclear;
 
-import io.github.zachohara.bukkit.simpleplugin.plugin.EmptyPlugin;
-
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * The {@code InfiniClearPlugin} class is the entry point for the plugin.
  *
  * @author Zach Ohara
  */
-public class InfiniClearPlugin extends EmptyPlugin {
+public class InfiniClearPlugin extends JavaPlugin {
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onEnable() {
+		super.onEnable();
 		// Run the WeatherRunnable every second, from now until server shutdown.
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new WeatherRunnable(), 0L, 20L);
 	}
