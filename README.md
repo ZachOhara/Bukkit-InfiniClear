@@ -1,8 +1,8 @@
 # Bukkit-InfiniClear
 
-Bukkit InfiniClear is a plugin for a Bukkit server that ensures the in-game weather will stay clear and sunny. It is last confirmed to work on Bukkit version 1.7.9-R2. A full list of commands that this plugin adds is included below.
+Bukkit InfiniClear is a plugin for a Bukkit server that ensures the in-game weather will stay clear and sunny. It is potentially useful for any creative or adventure world, or for hosting minigames. The current version is confirmed to work with Spigot-CraftBukkit version 1.8.8, and will maybe work on later versions without modification. This plugin, if installed, is always-on, and can't be turned on or off through any server commands or configuration.
 
-This plugin uses my Bukkit Common Library. The server *must* have that plugin installed for this plugin to work. The Bukkit Common Library can be downloaded from [GitHub](http://github.com/zachohara/bukkit-common)
+This plugin uses my Bukkit SimplePlugin Library. The server *must* have that plugin installed for this plugin to work. SimplePlugin can be downloaded from [GitHub](https://github.com/ZachOhara/Bukkit-SimplePlugin)
 
 Along with all of the source code, in the root folder of this repository you'll find [detailed documentation](javadoc) and a compiled .jar version of the project.
 
@@ -13,11 +13,3 @@ This entire repository is made available under the GNU General Public License v3
 ## Installation
 
 Download the "InfiniClear v___.jar" from the root folder of this repository, or check out the [releases page](https://github.com/ZachOhara/Bukkit-InfiniClear/releases) and download the latest version. Drop either file into the 'plugins' folder on your server.
-
-## Added Commands:
-
-### InfiniClear
-
-Usage: `/infiniclear`
-
-This command will toggle the on / off state of the weather protection that is added in this plugin. A response will be returned indicating if weather protection was turned on or off. If the protection is turned on, the weather will stay clear. If protection is off, the weather may turn to rain periodically as in the vanilla version of the game.
