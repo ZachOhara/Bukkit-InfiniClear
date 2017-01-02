@@ -30,7 +30,7 @@ public class InfiniClearPlugin extends JavaPlugin {
 	public void onEnable() {
 		super.onEnable();
 		// Run the WeatherRunnable every second, from now until server shutdown.
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new WeatherRunnable(), 0L, 20L);
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new WeatherRunnable(), 0L, 10L);
 	}
 
 }

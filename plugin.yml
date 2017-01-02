@@ -1,7 +1,6 @@
 name: Infiniclear
-version: 2.0
+version: 2.0.1
 main: io.zachohara.github.bukkit.infiniclear.InfiniClearPlugin
-depend: [SimplePlugin]
 description: Forever sunny skies!
 author: Zach Ohara
 commands: 
